@@ -1,28 +1,42 @@
 import math
 
-print('Введите операцию: ')
+print('Введите операцию (+,-,*,/,корень,степень,!, sin, cos, tg: ')
 oper = input()
 print('Введите первое значение: ')
 x = int(input())
 print('Введите второе значение: ')
 y = int(input())
 
-summ = x + y
-diff = x - y
-mult = x * y
-div = x / y
-deg = x ** y
-sqrt = x or y ** 0.5
+while oper == '+':
+    print('Сложение: ', x + y)
+    break
+while oper == '-':
+    print('Сложение: ', x - y)
+    break
+while oper == '*':
+    print('Произведение: ', x * y)
+    break
+while oper == '/':
+    print('Деление: ', x / y)
+    if y == 0:
+        break
+while oper == 'корень':
+    print('Корень: ', math.sqrt(x), math.sqrt(y))
+    break
+while oper == 'степень':
+    print('Степень: ', x ** y)
+    break
+while oper == '!':
+    print('Факториал: ', math.factorial(x), math.factorial(y))
+    break
+while oper == 'sin':
+    print('Синус: ', math.sin(x), math.sin(y))
+    break
+while oper == 'cos':
+    print('Косинус: ', math.cos(x), math.cos(y))
+    break
+while oper == 'tg':
+    print('Тангенс: ', math.tan(x), math.tan(y))
+    break
 
-if oper != '+' or 'сложение':
-    print(summ)
-else:
-    print(diff)
-if oper != '*' or 'умножение':
-    print(mult)
-else:
-    print(div)
-if oper != '**' or 'степень':
-    print(deg)
-else:
-    print(sqrt)
+
