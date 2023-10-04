@@ -1,4 +1,5 @@
 import math
+from os import close
 
 
 print('1. Сложение')
@@ -19,11 +20,21 @@ oper = input()
 
 while (oper != '11'):
     
-    print('Введите первое значение: ');
-    x = int(input())
-    print('Введите второе значение: ');
-    y = int(input())
-    
+    while True:
+        try:
+            x = int(input('Введите первое значение: '))
+            break
+        except ValueError:
+            print("Извините, вы ввели не числовое значение, попробуйте снова")
+
+    while True:
+        try:
+            y = int(input('Введите второе значение: '))
+            break
+        except ValueError:
+            print("Извините, вы ввели не числовое значение, попробуйте снова")
+
+
     if oper == '1':
         print('Сложение: ', x + y)
     elif oper == '2':
@@ -36,11 +47,25 @@ while (oper != '11'):
         else:
             print('Деление на ноль неосуществимо, попробуйте снова.')
     elif oper == '5':
-        print('Корень: ', math.sqrt(x), math.sqrt(y))
+        if (x < 0):
+            print("Извините, отрицательного корня не существует")
+        else:
+            print('Корень X: ', math.sqrt(x))
+        if (y < 0):
+            print("Извините, отрицательного корня не существует")
+        else:
+            print("Корень Y: ", math.sqrt(y))
     elif oper == '6':
         print('Степень: ', x ** y)
     elif oper == '7':
-        print('Факториал: ', math.factorial(x), math.factorial(y))
+        if (x < 0):
+            print("Извините, отрицательного факториала не существует")
+        else:
+            print('Факториал X: ', math.factorial(x))
+        if (y < 0):
+            print("Извините, отрицательного факториала не существует")
+        else:
+            print("Факториал Y: ", math.factorial(y))
     elif oper == '8':
         print('Синус: ', math.sin(x), math.sin(y))
     elif oper == '9':
