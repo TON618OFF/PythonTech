@@ -103,33 +103,52 @@ def Game():
             
         elif action == 3:
             students = ["Колден", "Хинагава", "Тсукимичи", "Фоден", "Аарон", "Рон", "Кейт", "Джек", "Фил", "Мишель"]
-            normalformatstudents = ", ".join(students)
+            NormalFormatStudents = ", ".join(students)
+            teachers = ["Саюри", "Ацуко", "Аяко", "Сумирэ", "Хироко"]
+            NormalFormatTeachers = ", ".join(teachers)
+            
+            print("-------------------------------")
             print("Сегодня у меня учебный день, и я не могу пропустить первые пары. Надо собирать вещи и выдвигаться.")
             print("Так-с, я приехал, что дальше?")
             def select():
                 print("1. Посмотреть список учеников и их количество")
                 print("2. Посмотреть список преподавателей")
                 print("3. Посмотреть расписание пар")
-            select()
             
-            while True:
-                try:
-                    action = int(input())
-                    break
-                except ValueError:
-                    print("Вы ввели не то")
+                while True:
+                    try:
+                        action = int(input())
+                        break
+                    except ValueError:
+                        print("Вы ввели не то")
                     
-            if action == 1:
-                print("-------------------------------")
-                print("Список моих одногруппников:")
-                print(normalformatstudents)
-                print("Количество моих одногруппников:")
-                print(len(students))
-                print("-------------------------------")
+                if action == 1:
+                    print("-------------------------------")
+                    print("Список моих одногруппников:")
+                    print(NormalFormatStudents)
+                    print("Количество моих одногруппников:")
+                    print(len(students))
+                    print("-------------------------------")
+                elif action == 2:
+                    print("-------------------------------")
+                    print("Список моих преподавателей:")
+                    print(NormalFormatTeachers)
+                    print("Количество моих преподавателей:")
+                    print(len(teachers))
+                    print("-------------------------------")
+                elif action == 3:
+                    print("-------------------------------")
+                    
 
+
+
+                    print("-------------------------------")
+                select()
+            select()
             print("*После учебного дня*")
             print("Фух, этот день был таким насыщенным! Я познакомился со своими преподавателями и новыми друзьями. Думаю мы будем лучшими друзьями :)")
             print("Я лёг спать, так и не поужинав")
+            print("-------------------------------")
             
     def Day2():
         ...
