@@ -1,8 +1,11 @@
 # coding=windows-1251
 
+from pyclbr import Class
+
+
 def Title():
     print("-------------------------------")
-    print("«Колден: История Лучшего»")
+    print("«Колден: История Лучшего» .DEMO.")
     print("-------------------------------")
 
 def Introduction():
@@ -18,13 +21,11 @@ def Introduction():
     print("-------------------------------")
 
 def InfoMainCharacters():
-    class Hero:
-        Name = "Колден"
-        Age = "16"
-        Hobby = "GameDesign"
-        MainCharacterInfo = [Name, Age, Hobby]
-  
-    H = Hero() # присваивание к переменной класса Hero
+    Name = "Колден"
+    Age = "16"
+    Hobby = "GameDesign"
+    MainCharacterInfo = [Name, Age, Hobby]
+    
 
 def Story():
     print("-------------------------------")
@@ -42,7 +43,6 @@ def Game():
         print("1. Пойти на кухню.")
         print("2. Сесть за компьютер.")
         print("3. Пойти на учёбу.")
-
         while True:
             try:
                 action = int(input())
@@ -50,9 +50,13 @@ def Game():
             except ValueError:
                 print("Вы ввели не то")
                 
+        print("Как будут звать вашего питомца?")
+        pet_name = input()
         if action == 1:
             print("-------------------------------")
-            print("Зайдя на кухню, я заметил, что тарелка кошки пуста.")
+            InfoMainCharacters()
+            message = f"Зайдя на кухню, я заметил, что тарелка \"{pet_name}\" пуста."
+            print(message)
             print("Насыпать порцию корма?")
             print("1. Да")
             print("2. Нет")
