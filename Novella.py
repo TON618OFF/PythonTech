@@ -1,8 +1,5 @@
 # coding=windows-1251
 
-from pyclbr import Class
-
-
 def Title():
     print("-------------------------------")
     print("«Колден: История Лучшего» .DEMO.")
