@@ -2,6 +2,9 @@
 import time
 import colorama
 from colorama import Fore, Back, Style
+import json
+
+
 
 def Introduction():
     print("-------------------------------")
@@ -18,8 +21,7 @@ def Introduction():
 def InfoMainCharacters():
     Name = "Колден"
     Age = "16"
-    Hobby = "GameDesign"
-    MainCharacterInfo = [Name, Age, Hobby]
+    MainCharacterInfo = [Name, Age]
     
 
 def Story():
@@ -50,19 +52,27 @@ def Game():
                 break
             except ValueError:
                 print("Вы ввели не то")
+                
         if action == 1:
             print("-------------------------------")
-            print("Как будут звать вашего питомца?")
-            pet_name = input()
+            
+            Hobby = input("Введите своё хобби: ")
+            return Hobby
+            pet_name = input("Как будут звать вашего питомца?\n")
+        
             print("-------------------------------")
             message = Fore.YELLOW + f"Зайдя на кухню, я заметил, что тарелка \"{pet_name}\" пуста. \n"
+            
             for char in message:
                 print(char, end = "", flush = True)
                 time.sleep(0.01)
+                
             petfood = Fore.YELLOW + "Насыпать порцию корма? \n" + Fore.WHITE
+            
             for char in petfood:
                 print(char, end = "", flush = True)
                 time.sleep(0.01)
+                
             print("-------------------------------")
             print("1. Да \n\
 2. Нет \n\
@@ -144,6 +154,11 @@ def tech():
     NormalFormatStudents = ", ".join(students)
     teachers = ["\"Саюри\"", "\"Ацуко\"", "\"Аяко\"", "\"Сумирэ\"", "\"Хироко\""]
     NormalFormatTeachers = ", ".join(teachers)
+    
+    with open("save.txt", "w") as save:
+        save.write("Список преподавателей: ", NormalFormatTeachers)
+        save.write("Список одногруппников: ", NormalFormatStudents)
+    
     print("-------------------------------")
     text = Fore.YELLOW + "Сегодня у меня учебный день, и я не могу пропустить первые пары. Надо собирать вещи и выдвигаться. \n\
 *Какое-то время спустя...* \n\
@@ -305,8 +320,32 @@ def Menu():
         
 def Title():
     print("-------------------------------")
-    print(Back.YELLOW + Fore.LIGHTYELLOW_EX + "«Колден: История Лучшего» .DEMO." + Fore.WHITE + Back.BLACK)
+    print(Back.YELLOW + Fore.LIGHTYELLOW_EX + "«Колден: История Лучшего»" + Fore.WHITE + Back.BLACK)
     print("-------------------------------")
 
+
+students = ["Колден", "Хинагава", "Тсукимичи", "Фоден", "Аарон", "Рон", "Кейт", "Джек", "Фил", "Мишель"]
+NormalFormatStudents = ", ".join(students)
+teachers = ["\"Саюри\"", "\"Ацуко\"", "\"Аяко\"", "\"Сумирэ\"", "\"Хироко\""]
+NormalFormatTeachers = ", ".join(teachers)
+    
+InfoMainCharacters()
+
+UserName = input("Введите своё уникальное пользовательское имя: ")
+
+
+def createsave():
+    with open("save.json", "w") as save:
+        save.write(NormalFormatTeachers)
+        save.write(NormalFormatStudents)
+        save.write(Hobby)
+        save.write(UserName)
+
+def opensave():
+    with open("save.json", "r") as save:
+        content = save.readlines()
+        print(content)
+
+opensave()
 Title()
 Menu()
